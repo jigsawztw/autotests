@@ -2,8 +2,10 @@ package steps;
 import pages.CinemaPage;
 import org.junit.*;
 import io.qameta.allure.Step;
+import pages.BasePage;
 
 public class CinemaSteps {
+
 
     @Step("заголовок страницы Кино равен {expectedTitle}")
     public void checkTitle(String expectedTitle) {
@@ -12,15 +14,15 @@ public class CinemaSteps {
         Assert.assertEquals("Ожидаемый результат не совпадает с фактическим ", expectedTitle, actualValue);
     }
 
-    @Step("выполнено нажатие на кнопку выбора даты")
-    public void pushDateButton(){
-        new CinemaPage().dateBtn.click();
+    @Step("нажали на кнопку выбора даты")
+    public void pushButtonDate(){
+        new CinemaPage().pushButtonDate();
     }
-    @Step("выбрана дата - {date}")
+    @Step("выбрали в выпадающем меню кнопку  - {date}")
     public void selectDate(String date){
         new CinemaPage().selectDate(date);
     }
-    @Step("выбрали фильм с рейтингом больше или равным - {rating}")
+    @Step("нашли фильм с рейтингом {rating} сохранили название и количество кинотеатров")
     public void findAndSaveFilmFromRating(String rating){ new CinemaPage().findAndSaveFilmFromRating(rating); }
 
 

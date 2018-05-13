@@ -9,11 +9,11 @@ public class ScenarioSteps {
     FilmItemSteps filmItemSteps = new FilmItemSteps();
 
     @When("^выбран пункт меню \"(.+)\"$")
-    public void selectMainMenuItem(String itemName){
+    public void selectAfisha(String itemName){
         mainPageSteps.selectMainMenuItem(itemName);
     }
 
-    @When("^выбран пункт меню афиши \"(.+)\"$")
+    @When("^выбрали меню  \"(.+)\"$")
     public void selectAfishaMenuItem(String itemName){
         afishaSteps.selectAfishaMenuItem(itemName);
     }
@@ -22,15 +22,15 @@ public class ScenarioSteps {
     public void checkTitle(String title){
         cinemaSteps.checkTitle(title);
     }
-    @When("^нажали на кнопку выбора даты$")
+    @Then("^нажали на кнопку выбора даты$")
     public void pushDateButton(){
-       cinemaSteps.pushDateButton();
+       cinemaSteps.pushButtonDate();
     }
-    @When("^выбрали в выпадающем меню кнопку -\"(.+)\"$")
+    @Then("^выбрали в выпадающем меню кнопку -\"(.+)\"$")
     public void selectDate(String date){
         cinemaSteps.selectDate(date);
     }
-    @When("^нашли фильм с рейтингом -\"(.+)\" сохранили название и количество кинотеатров$")
+    @When("^нашли фильм с рейтингом >= \"(.+)\" сохранили название и количество кинотеатров$")
     public void findAndSaveFilmFromRating(String rating){
         cinemaSteps.findAndSaveFilmFromRating(rating);
     }

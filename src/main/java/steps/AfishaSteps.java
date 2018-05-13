@@ -6,7 +6,7 @@ import io.qameta.allure.Step;
 
 public class AfishaSteps {
 
-    @Step("выбрали меню {itemname}")
+    @Step("выбрали меню {itemName}")
     public void selectAfishaMenuItem(String itemName){new AfishaPage().selectAfishaMenuItem(itemName);}
 
 
