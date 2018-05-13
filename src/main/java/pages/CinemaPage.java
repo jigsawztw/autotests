@@ -42,7 +42,10 @@ public class CinemaPage extends BasePage{
 
         }
         finally {
-            wait.until(ExpectedConditions.visibilityOf(dateBtn));
+            try{
+                Thread.sleep(500); //Почему-то без задержки тест падает
+            }
+            catch (InterruptedException e){}
         }
 
         dateBtn.click();
