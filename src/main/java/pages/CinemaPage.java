@@ -17,7 +17,7 @@ public class CinemaPage extends BasePage{
 
     @FindBy(xpath = "//button[contains(@class,'filter-date')]")
     public WebElement dateBtn;
-    @FindBy(xpath = "/html/body/div[5]/div/div/div/div/div/div[3]/div[1]/div/div[2]/button[2]/span")
+    @FindBy(xpath = "//div[contains(@class,'controls_type_email')]//button[contains(@class,'close')]")
     public WebElement popup1CloseBtn;
     @FindBy(xpath = "//div[@class='tutorial-modal__close']")
     public WebElement popup2CloseBtn;
@@ -32,29 +32,13 @@ public class CinemaPage extends BasePage{
 
     public void pushButtonDate(){
 
-        wait.until(ExpectedConditions.visibilityOf(popup1CloseBtn));
-        try{
-            popup1CloseBtn.click();
-
-        }catch (WebDriverException e){
-            JavascriptExecutor executor = (JavascriptExecutor)BaseSteps.getDriver();
-            executor.executeScript("arguments[0].click()", popup1CloseBtn);
-
-        }
-        finally {
-            try{
-                Thread.sleep(500); //Почему-то без задержки тест падает
-            }
-            catch (InterruptedException e){}
-        }
+        wait.until(ExpectedConditions.elementToBeClickable(popup1CloseBtn)).click();
+        wait.until(ExpectedConditions.visibilityOf(dateBtn));
+        wait.until(ExpectedConditions.elementToBeClickable(dateBtn)).click();
 
         dateBtn.click();
     }
 
-    public CinemaPage() {
-        PageFactory.initElements(BaseSteps.getDriver(), this);
-
-    }
 
     public void selectDate(String date){
 
