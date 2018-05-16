@@ -21,9 +21,6 @@ public class FilmItemPage extends BasePage{
         Assert.fail("Сохраненные значения не соответствуют фактическим");
     }
 
-    public FilmItemPage() {
-        PageFactory.initElements(BaseSteps.getDriver(), this);
-    }
 
 
 
